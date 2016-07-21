@@ -1,0 +1,82 @@
+# uncomment/rewrite necessary lines
+# only simple includes supported:
+# non-recursive, path without spaces
+# syntax: '!include wanted_file'
+# include's fields will overwrite original fields in case of same name!
+#!include       path/wanted_file
+#------console app action (dump or estimate)----------
+#action         dump
+#action         test
+#-----------------------------------------------------
+#------detector type----------------------------------
+#worker-type        cameff
+#worker-type        face
+#worker-type        fire
+#worker-type        human
+#worker-type        mtwt #multi-target weighted tracker
+#worker-type        lfpt #linear fingerprint-based tracker
+#worker-type        simt
+#worker-type        smoke
+#worker-type        smoke2
+#worker-type        people
+#-----------------------------------------------------
+#object-type        1 #human fullbody
+#object-type        2 #human upperbody
+#object-type        3 #human head
+#object-type        4 #human upview
+#------paths------------------------------------------
+# source path (REQUIRED for all tools):
+movie-path     /home/sergsenta1995/detector/drinking.mp4
+# OR image folder
+#--- photo-dir      /home/aifil/detector                           #photo-dir
+# OR images list
+#--- photo-dir      /home/storage/dataset/aifil/tsr/files.lst
+# path to ground truth file
+correct-path   /home/aifil/detector/task1.gt                        #correct-path 
+# OR folder with ground truth file (file name will be <task name>.gt)
+#--- correct-path   /home/storage/dataset/aifil/tsr/
+# path to file for writing output points
+# reports will be named using basename and different extensions
+#--- result-path    /home/storage/dataset/aifil/tsr/test.result
+# OR folder for results and reports
+# files will be names using task name and different extensions
+result-path    /home/aifil/detector                                  #result-path
+# path for exporting images
+#--- export-path    /home/storage/dataset/aifil/tsr/export/
+# path for dumps
+#--- dump-path      /home/storage/dataset/aifil/dumps/
+# object types description (special format)
+#--- obj-type-legend    /path/to/object/types/file
+#-----------------------------------------------------
+#------movie parameters-------------------------------
+#resize         320 240
+#wanted-fps     25
+#skip-frames        0
+#detector-skip-frames   0
+#colorspace     rgb
+#colorspace     hsv
+#colorspace     luv
+#colorspace     yuv
+#-----------------------------------------------------
+#ground-plane       x y minw minh maxw maxh, x y minw minh maxw maxh, x y minw minh maxw maxh, x y minw minh maxw maxh
+#------dumping----------------------------------------
+#dump-type      icf_canonical
+#dump-type      icf_good
+#dump-type      icf_dssl
+#dump-type      head_det
+#dump-prefix        qu
+#dump-images        1
+#dump-pedantic-size     0
+#dump-tile-params   36 36 10 20 20 20
+#dump-tile-params   44 44 12 24 24 24
+#dump-tile-params   52 52 14 26 26 26
+#dump-tile-params   60 60 16 30 30 30
+#dump-tile-params   68 68 20 34 34 34
+#-----------------------------------------------------
+#-----interpolation-----------------------------------
+# interpolation type
+#interpolation linear
+#interpolation polynom
+# points used for polynomial interpolation
+#interpolation-points   3
+#-----------------------------------------------------
